@@ -103,29 +103,25 @@ I have received a directive from the Zillow Data Science Team to enhance their e
    i) Save the env.py file in the repository. Make sure to include your user, password, and host variables.
    ii) Add the env.py file to the .gitignore file to keep your sensitive information secure.
 4) Run the Jupyter Notebook file in your local environment.
- ............................................................................................................................................................................
+
 # Conclusions
-- Having tech support greatly reducing the customers probability of churning.
-- The longer the customer has been with the company the less likely they are to churn.
-- New customers tend to have a high churn rate.
-- Customers with a monthly plan have a higher churn rate than customers with a yearly plan.
-- Customers with DSL tend to have a significantly lower churn rate compared to customers with Fiber optics.
-- It is apparent that senior citizens, although a minority of customer churn, exhibit a considerably higher churn rate in comparison to non-senior citizen customers.
+**Statistical Tests:**
+   - We conducted several statistical tests to investigate relationships between various features and the target variable, taxvaluedollarcnt. These tests included:
+     - Pearson's Correlation Coefficient to examine the correlation between numeric features and tax value.
+     - Chi-Square Test of Independence to assess the relationship between categorical variables like the presence of tech support and churn.
+     - ANOVA to analyze variations in tax value across different FIPS regions.
+**Regression Models:**
+   - We trained and evaluated three regression models: Tweedie Regressor, Random Forest Regressor, and XGBoost Regressor.
+   - While the models showed promise on the training data with reduced RMSE values compared to the baseline, they struggled to generalize effectively to the validation data. Further model refinement, hyperparameter tuning, and feature engineering are recommended.
 
 # Takeaways
-i) Contract Type: In the decision tree model, contract type stands out as the most crucial feature with an importance score of around 0.619. It also holds significance in the random forest model, ranking second with an importance score of approximately 0.1987.
-
-ii) Tenure: Tenure is the second most important feature in the decision tree model, with an importance score of roughly 0.194. Interestingly, it takes the lead in importance in the random forest model, where its score is approximately 0.209.
-
-iii) Monthly Charges: Monthly charges emerge as the third most important feature in the random forest model, with an importance score of about 0.142.
-
-iv) Internet Service Type: In the decision tree model, internet service type holds the third position in importance, with a score of roughly 0.167. It also maintains significance in the random forest model, ranking fifth with an importance score of approximately 0.113.
-
-v) Total Charges: Total charges play a role in churn prediction and are considered the fourth most important feature in the random forest model, with an importance score of approximately 0.132.
+- Despite some limitations in model performance, we made several noteworthy findings:
+     - Property tax values are influenced by various factors, including property size (square footage), location (FIPS region), and the presence of certain amenities (e.g., tech support).
+     - The number of bedrooms and bathrooms, as well as the year the property was built, have some impact on tax values.
+     - Differences in tax values among FIPS regions indicate the importance of considering location as a key factor in property value estimation.
 
  
 # Recommendations
-- Encourage customers to choose longer-term contracts, such as one or two-year contracts, as these seem to have a positive impact on customer retention.
-- Consider implementing retention strategies or loyalty programs that reward customers for their longevity with the company.
-- Explore options to optimize pricing strategies to make them more competitive in the market without compromising quality.
-- Continuously collect feedback from customers who have churned to understand their reasons for leaving. Use this information to make improvements in areas that matter most to customer
+   - To build a more accurate predictive model, we recommend further feature engineering to capture additional insights.
+   - Hyperparameter tuning, model selection, and addressing potential overfitting should be explored to enhance model performance.
+   - A deeper analysis of location-based features and external data sources could provide valuable context for property value estimation.
